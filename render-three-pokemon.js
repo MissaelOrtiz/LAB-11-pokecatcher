@@ -1,3 +1,6 @@
+import { pokemonData } from './pokemon-data.js';
+
+
 export function renderThreePokemon() {
     let poke1 = getRandomPokemon();
     let poke2 = getRandomPokemon();
@@ -10,8 +13,9 @@ export function renderThreePokemon() {
     }
 }
 
+
 function getRandomPokemon() {
-    const randomIndex = Math.floor(Math.random() * pokemonData.length);
-    const randomPokemon = pokemonData[randomIndex];
+    const randomI = Math.floor(Math.random() * pokemonData.length);
+    const randomPokemon = pokemonData[randomI];
     return randomPokemon;
 }

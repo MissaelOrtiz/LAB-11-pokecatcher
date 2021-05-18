@@ -8,11 +8,11 @@ renderThreePokemon();
 // set event listeners to catch the pokemon using the DOM element we pulled in.
 catchButton.addEventListener('click', () => {
   // bring in the user choice and have it store it in a nicebox
-    const userChoice = document.querySelector(':checked');
+    const userChoice = document.querySelector('input:checked');
   // Grab the value (pokemon id) of the user choice and store it in a nicebox
-    const selectedPokemonId = userChoice.value;
+    const pokemonId = userChoice.value;
   // plug that pokemonid into the capture pokemon function
-    capturePokemon(selectedPokemonId);
+    capturePokemon(pokemonId);
   // spawn a new set of pokemon!
     renderThreePokemon();
 });

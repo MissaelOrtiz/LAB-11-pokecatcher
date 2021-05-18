@@ -19,8 +19,8 @@ export function setPokedex(newPokedex) {
 // This function will activate when there are pokemon generated and rendered, using getPokedex() to pull down the personal pokedex and update that pokemon's captured value, then returning this personal pokedex to localstorage.
 export function capturePokemon(selectedPokemonId) {
     const personalPokeDex = getPokedex();
-    const matchingPokemon = findById(personalPokeDex, selectedPokemonId);
-    matchingPokemon.captured++;
+    const selectedPokemon = findById(personalPokeDex, selectedPokemonId);
+    selectedPokemon.captured++;
     setPokedex(personalPokeDex);
 }
 
@@ -32,7 +32,7 @@ export function encounterPokemon(PokemonId) {
     if (matchingPokemon) {
         matchingPokemon.encountered++;
     } else {
-        const newItem = {
+        let newItem = {
             id: PokemonId,
             captured: 0,
             encountered: 1

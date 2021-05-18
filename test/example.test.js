@@ -25,11 +25,11 @@ test('This test should take in an id value and compare it against the values of 
 
 test('This test should set a string in local storage and return that string with the tested function', (expect) => {
     //Arrange
-    const newPokedex = [{ id: 1, captured: 0, encountered: 1 }, {id: 2, captured: 0, encountered: 1 }];
+    const newPokedex = [{ id: 1, captured: 0, encountered: 1 }, { id: 2, captured: 0, encountered: 1 }];
     const stringyPokedex = JSON.stringify(newPokedex);
     localStorage.setItem('POKEDEX', stringyPokedex);
     // Set up your arguments and expectations
-    const expected = [{ id: 1, captured: 0, encountered: 1 }, {id: 2, captured: 0, encountered: 1 }];
+    const expected = [{ id: 1, captured: 0, encountered: 1 }, { id: 2, captured: 0, encountered: 1 }];
     
     //Act 
     // Call the function you're testing and set the result to a const

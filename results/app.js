@@ -1,4 +1,5 @@
 import { getPokemonNames, getPokemonEncounters, getPokemonCaptures, getPokemonColors } from '../local-storage-utils.js';
+const resetButton = document.getElementById('reset');
 
 var ctx = document.getElementById('myChart').getContext('2d');
 
@@ -35,4 +36,9 @@ let myChart = new Chart(ctx, {
             },
         },
     },
+});
+
+resetButton.addEventListener('click', () => {
+    localStorage.removeItem('POKEDEX');
+    window.location.replace('../');
 });

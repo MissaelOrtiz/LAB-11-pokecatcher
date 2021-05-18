@@ -171,3 +171,9 @@ button:hover {
 .pkball2:hover {
     width: 200px;
 }
+.reset-button {
+    margin: 100px 0px;
+}
+.reset-button:hover {
+    animation: none;
+}

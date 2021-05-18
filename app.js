@@ -17,6 +17,6 @@ catchButton.addEventListener('click', () => {
     renderThreePokemon();
 });
 
-if (totalEncounters() === 99) {
+if (totalEncounters() === 30) {
     window.location.replace('./results/');
 }

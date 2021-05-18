@@ -1,5 +1,5 @@
 import { renderThreePokemon } from './render-three-pokemon.js';
-import { capturePokemon } from './local-storage-utils.js';
+import { capturePokemon, totalEncounters } from './local-storage-utils.js';
 
 // import functions and grab DOM elements
 const catchButton = document.getElementById('catch-button');
@@ -16,3 +16,7 @@ catchButton.addEventListener('click', () => {
   // spawn a new set of pokemon!
     renderThreePokemon();
 });
+
+if (totalEncounters() === 30) {
+    window.location.replace('./results/');
+}

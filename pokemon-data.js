@@ -4,6 +4,7 @@ export const pokemonData = [
         pkmnId: 1,
         name: 'Bulbasaur',
         type: ['grass', 'poison'],
+        color: 'green',
         img: 'bulbasaur.png'
     },
     {
@@ -11,6 +12,7 @@ export const pokemonData = [
         pkmnId: 4,
         name: 'Charmander',
         type: ['fire'],
+        color: 'red',
         img: 'charmander.png'
     },
     {
@@ -18,6 +20,7 @@ export const pokemonData = [
         pkmnId: 7,
         name: 'Squirtle',
         type: ['water'],
+        color: 'blue',
         img: 'squirtle.png'
     },
     {
@@ -25,6 +28,7 @@ export const pokemonData = [
         pkmnId: 41,
         name: 'Zubat',
         type: ['poison', 'flying'],
+        color: 'purple',
         img: 'zubat.png'
     },
     {
@@ -32,6 +36,7 @@ export const pokemonData = [
         pkmnId: 58,
         name: 'Growlithe',
         type: ['fire'],
+        color: 'brown',
         img: 'growlithe.png'
     },
     {
@@ -39,6 +44,7 @@ export const pokemonData = [
         pkmnId: 63,
         name: 'Abra',
         type: ['psychic'],
+        color: 'brown',
         img: 'abra.png'
     },
 ];

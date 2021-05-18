@@ -1,7 +1,7 @@
 // IMPORT MODULES under test here:
 
 import { findById } from '../utils.js';
-import { getPokedex, setPokedex, encounterPokemon, capturePokemon } from '../local-storage-utils.js';
+import { getPokedex, setPokedex, encounterPokemon, capturePokemon, totalEncounters, getPokemonNames, getPokemonCaptures, getPokemonEncounters, getPokemonColors } from '../local-storage-utils.js';
 
 // import { example } from '../example.js';
 
@@ -101,5 +101,85 @@ test('This test should increment an item within an array, but only increment one
 
  //Expect
  // Make assertions about what is expected versus the actual result
+    expect.deepEqual(actual, expected);
+});
+
+test('This test should count all the total encounters and return that value as a number', (expect) => {
+    //Arrange
+    const newPokedex = [{ id: 1, captured: 0, encountered: 2 }, { id: 2, captured: 0, encountered: 3 }];
+ // Set up your arguments and expectations
+    const expected = 5;
+ 
+ //Act 
+ // Call the function you're testing and set the result to a const
+    setPokedex(newPokedex);
+    const actual = totalEncounters();
+
+ //Expect
+ // Make assertions about what is expected versus the actual result
+    expect.deepEqual(actual, expected);
+});
+
+test('This test should look at the localstorage and return the names of the items present.', (expect) => {
+    //Arrange
+    const newPokedex = [{ id: 1, captured: 0, encountered: 2 }, { id: 2, captured: 0, encountered: 3 }];
+ // Set up your arguments and expectations
+    const expected = ['Bulbasaur', 'Charmander'];
+ 
+ //Act 
+ // Call the function you're testing and set the result to a const
+    setPokedex(newPokedex);
+    const actual = getPokemonNames();
+
+ //Expect
+ // Make assertions about what is expected versus the actual result
+    expect.deepEqual(actual, expected);
+});
+
+test('This test should look at the localstorage and return the number of times each pokemon has been caught', (expect) => {
+    //Arrange
+    const newPokedex = [{ id: 1, captured: 2, encountered: 2 }, { id: 2, captured: 1, encountered: 3 }];
+ // Set up your arguments and expectations
+    const expected = [2, 1];
+ 
+ //Act 
+ // Call the function you're testing and set the result to a const
+    setPokedex(newPokedex);
+    const actual = getPokemonCaptures();
+
+ //Expect
+ // Make assertions about what is expected versus the actual result
+    expect.deepEqual(actual, expected);
+});
+
+test('This test should look at the localstorage and return the number of times each pokemon has been encountered', (expect) => {
+    //Arrange
+    const newPokedex = [{ id: 1, captured: 2, encountered: 2 }, { id: 2, captured: 1, encountered: 3 }];
+ // Set up your arguments and expectations
+    const expected = [2, 3];
+ 
+ //Act 
+ // Call the function you're testing and set the result to a const
+    setPokedex(newPokedex);
+    const actual = getPokemonEncounters();
+
+ //Expect
+ // Make assertions about what is expected versus the actual result
+    expect.deepEqual(actual, expected);
+});
+
+test('This test should look at the localstorage and return the colors of the items present.', (expect) => {
+   //Arrange
+    const newPokedex = [{ id: 1, captured: 0, encountered: 2 }, { id: 2, captured: 0,  encountered: 3 }];
+// Set up your arguments and expectations
+    const expected = ['green', 'red'];
+
+//Act 
+// Call the function you're testing and set the result to a const
+    setPokedex(newPokedex);
+    const actual = getPokemonColors();
+
+//Expect
+// Make assertions about what is expected versus the actual result
     expect.deepEqual(actual, expected);
 });

@@ -1,4 +1,5 @@
 import { findById } from './utils.js';
+import { pokemonData } from './pokemon-data.js';
 
 // This function will pull down the personal pokedex from localstorage and parse it into a usable state.
 export function getPokedex() {
@@ -40,4 +41,55 @@ export function encounterPokemon(PokemonId) {
         personalPokeDex.push(newItem);
     }
     setPokedex(personalPokeDex);
+}
+
+export function totalEncounters() {
+    let counter = 0;
+    let personalPokedex = getPokedex();
+    for (let item of personalPokedex) {
+        counter = counter + item.encountered;
+    }
+    return counter;
+}
+
+export function getPokemonNames() {
+    let output = [];
+    let personalPokedex = getPokedex();
+    for (let item of personalPokedex) {
+        let pokemonObject = findById(pokemonData, item.id);
+        let pokemonName = pokemonObject.name;
+        output.push(pokemonName);
+    }
+    return output;
+}
+
+export function getPokemonCaptures() {
+    let output = [];
+    let personalPokedex = getPokedex();
+    for (let item of personalPokedex) {
+        let capture = item.captured;
+        output.push(capture);
+    }
+    return output;
+}
+
+export function getPokemonEncounters() {
+    let output = [];
+    let personalPokedex = getPokedex();
+    for (let item of personalPokedex) {
+        let capture = item.encountered;
+        output.push(capture);
+    }
+    return output;
+}
+
+export function getPokemonColors() {
+    let output = [];
+    let personalPokedex = getPokedex();
+    for (let item of personalPokedex) {
+        let pokemonObject = findById(pokemonData, item.id);
+        let pokemonColor = pokemonObject.color;
+        output.push(pokemonColor);
+    }
+    return output;
 }

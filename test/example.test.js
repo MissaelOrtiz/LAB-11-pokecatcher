@@ -39,3 +39,17 @@ test('This test should set a string in local storage and return that string with
     // Make assertions about what is expected versus the actual result
     expect.deepEqual(actual, expected);
 });
+
+test('This test should set a string in local storage and return that string with the tested function', (expect) => {
+    //Arrange
+    const newPokedex = [{ id: 1, captured: 0, encountered: 1 }, { id: 2, captured: 0, encountered: 1 }];
+    //Act 
+    // Call the function you're testing and set the result to a const
+    setPokedex(newPokedex);
+
+    //Expect
+    const stringyPokedex = localStorage.getItem('POKEDEX');
+    const expected = JSON.parse(stringyPokedex);
+    // Make assertions about what is expected versus the actual result
+    expect.deepEqual(newPokedex, expected);
+});

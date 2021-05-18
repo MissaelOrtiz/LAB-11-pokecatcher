@@ -1,6 +1,7 @@
 // IMPORT MODULES under test here:
 
 import { findById } from '../utils.js';
+import { getPokedex, setPokedex, encounterPokemon, capturePokemon } from '../local-storage-utils.js';
 
 // import { example } from '../example.js';
 
@@ -16,6 +17,23 @@ test('This test should take in an id value and compare it against the values of 
     //Act 
     // Call the function you're testing and set the result to a const
     const actual = findById(someArr, 1);
+
+    //Expect
+    // Make assertions about what is expected versus the actual result
+    expect.deepEqual(actual, expected);
+});
+
+test('This test should set a string in local storage and return that string with the tested function', (expect) => {
+    //Arrange
+    const newPokedex = [{ id: 1, captured: 0, encountered: 1 }, {id: 2, captured: 0, encountered: 1 }];
+    const stringyPokedex = JSON.stringify(newPokedex);
+    localStorage.setItem('POKEDEX', stringyPokedex);
+    // Set up your arguments and expectations
+    const expected = [{ id: 1, captured: 0, encountered: 1 }, {id: 2, captured: 0, encountered: 1 }];
+    
+    //Act 
+    // Call the function you're testing and set the result to a const
+    const actual = getPokedex();
 
     //Expect
     // Make assertions about what is expected versus the actual result

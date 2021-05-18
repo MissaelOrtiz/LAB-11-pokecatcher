@@ -1,18 +1,18 @@
 import { renderThreePokemon } from './render-three-pokemon.js';
+import { capturePokemon } from './local-storage-utils.js';
 
 // import functions and grab DOM elements
-const pokeImg1 = document.getElementById('poke-img-1');
-const pokeImg2 = document.getElementById('poke-img-2');
-const pokeImg3 = document.getElementById('poke-img-3');
-const pokeSelect1 = document.getElementById('poke-1');
-const pokeSelect2 = document.getElementById('poke-2');
-const pokeSelect3 = document.getElementById('poke-3');
 const catchButton = document.getElementById('catch-button');
-// initialize state
+// We render 3 pokemon for the initial encounters. This can be put behind a button later on! (like a rustling bush)
 renderThreePokemon();
-
-
-// set event listeners 
-  // get user input
-  // use user input to update state 
-  // update DOM to reflect the new state
+// set event listeners to catch the pokemon using the DOM element we pulled in.
+catchButton.addEventListener('click', () => {
+  // bring in the user choice and have it store it in a nicebox
+    const userChoice = document.querySelector(':checked');
+  // Grab the value (pokemon id) of the user choice and store it in a nicebox
+    const selectedPokemonId = userChoice.value;
+  // plug that pokemonid into the capture pokemon function
+    capturePokemon(selectedPokemonId);
+  // spawn a new set of pokemon!
+    renderThreePokemon();
+});

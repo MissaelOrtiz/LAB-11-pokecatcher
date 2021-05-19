@@ -23,7 +23,7 @@ test('This test should take in an id value and compare it against the values of 
     expect.deepEqual(actual, expected);
 });
 
-test('This test should set a string in local storage and return that string with the tested function', (expect) => {
+test('This test should set a string in local storage and return that string with the tested function getPokedex', (expect) => {
     //Arrange
     const newPokedex = [{ id: 1, captured: 0, encountered: 1 }, { id: 2, captured: 0, encountered: 1 }];
     const stringyPokedex = JSON.stringify(newPokedex);
@@ -40,20 +40,6 @@ test('This test should set a string in local storage and return that string with
     expect.deepEqual(actual, expected);
 });
 
-test('This test should set a string in local storage and return that string with the tested function getPokedex', (expect) => {
-    //Arrange
-    const newPokedex = [{ id: 1, captured: 0, encountered: 1 }, { id: 2, captured: 0, encountered: 1 }];
-    //Act 
-    // Call the function you're testing and set the result to a const
-    setPokedex(newPokedex);
-
-    //Expect
-    const stringyPokedex = localStorage.getItem('POKEDEX');
-    const expected = JSON.parse(stringyPokedex);
-    // Make assertions about what is expected versus the actual result
-    expect.deepEqual(newPokedex, expected);
-});
-
 test('This test should set a string in local storage and return that string with the tested function setPokedex', (expect) => {
     //Arrange
     const newPokedex = [{ id: 1, captured: 0, encountered: 1 }, { id: 2, captured: 0, encountered: 1 }];
@@ -67,6 +53,20 @@ test('This test should set a string in local storage and return that string with
     // Make assertions about what is expected versus the actual result
     expect.deepEqual(newPokedex, expected);
 });
+
+// test('This test should set a string in local storage and return that string with the tested function setPokedex', (expect) => {
+//     //Arrange
+//     const newPokedex = [{ id: 1, captured: 0, encountered: 1 }, { id: 2, captured: 0, encountered: 1 }];
+//     //Act 
+//     // Call the function you're testing and set the result to a const
+//     setPokedex(newPokedex);
+
+//     //Expect
+//     const stringyPokedex = localStorage.getItem('POKEDEX');
+//     const expected = JSON.parse(stringyPokedex);
+//     // Make assertions about what is expected versus the actual result
+//     expect.deepEqual(newPokedex, expected);
+// });
 
 test('This test should increment an item within an array, but only increment one value of that item (encounterPokemon)', (expect) => {
       //Arrange
@@ -170,7 +170,7 @@ test('This test should look at the localstorage and return the number of times e
 
 test('This test should look at the localstorage and return the colors of the items present.', (expect) => {
    //Arrange
-    const newPokedex = [{ id: 1, captured: 0, encountered: 2 }, { id: 2, captured: 0,  encountered: 3 }];
+    const newPokedex = [{ id: 1, captured: 0, encountered: 2 }, { id: 2, captured: 0, encountered: 3 }];
 // Set up your arguments and expectations
     const expected = ['green', 'red'];
 
